@@ -1,0 +1,23 @@
+#!ipxe
+{%- if kernel is defined %}
+{%- if kernel_opts is defined %}
+kernel {{ipxe_url}}/kernel/${uuid} {{kernel_opts}}
+{%- else %}
+kernel {{ipxe_url}}/kernel/${uuid}
+{%- endif %}
+{%- endif %}
+{%- if module0 is defined %}
+module {{ipxe_url}}/module/${uuid}/0
+{%- elif module is defined %}
+module {{ipxe_url}}/module/${uuid}
+{%- endif %}
+{%- if module1 is defined %}
+module {{ipxe_url}}/module/${uuid}/1
+{%- endif %}
+{%- if module2 is defined %}
+module {{ipxe_url}}/module/${uuid}/2
+{%- endif %}
+{%- if module3 is defined %}
+module {{ipxe_url}}/module/${uuid}/3
+{%- endif %}
+boot

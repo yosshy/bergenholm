@@ -1,0 +1,6 @@
+#!ipxe
+
+dhcp
+echo ===== System UUID is ${uuid} =====
+echo ===== Trying boot from local disk =====
+sanboot --no-describe --drive 0x80

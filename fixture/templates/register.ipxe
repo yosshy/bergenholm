@@ -1,0 +1,10 @@
+#!ipxe
+
+dhcp
+echo ===== System UUID is ${uuid} =====
+echo ===== Registering this host to Bergenholm =====
+imgfetch {{ipxe_url}}/register/${uuid}
+imgfree
+sleep 10
+echo ===== Trying boot from local disk =====
+sanboot --no-describe --drive 0x80

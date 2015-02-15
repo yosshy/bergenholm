@@ -1,0 +1,4 @@
+{
+    "groups": ["ubuntu"],
+    "series": "precise"
+}

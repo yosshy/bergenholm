@@ -1,0 +1,9 @@
+{
+    "groups": ["default"],
+    "mirror_url": "http://mirror.centos.org/centos-{{version}}/{{version}}/os/{{arch}}",
+    "image_base_url": "{{mirror_url}}/images/pxeboot",
+    "kernel": "{{image_base_url}}/vmlinuz",
+    "module": "{{image_base_url}}/initrd.img",
+    "kernel_opts": "ks={{base_url}}/api/1.0/templates/{{kickstart}}/${uuid}",
+    "ipxe_script": "linux.ipxe"
+}

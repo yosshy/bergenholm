@@ -1,0 +1,9 @@
+{
+    "base_url": "http://192.168.10.254",
+    "ipxe_url": "{{base_url}}/ipxe",
+    "gateway": "192.168.10.254",
+    "netmask": "255.255.255.0",
+    "nameserver": "192.168.0.254",
+    "proxy_url": "http://proxy.example.com:8080",
+    "ipxe_script": "localboot.ipxe"
+}

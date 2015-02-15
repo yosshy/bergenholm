@@ -1,0 +1,11 @@
+{
+    "groups": ["default"],
+    "mirror_scheme": "http",
+    "mirror_host": "jp.archive.ubuntu.com",
+    "mirror_path": "/ubuntu",
+    "image_base_url": "{{mirror_scheme}}://{{mirror_host}}{{mirror_path}}/dists/{{series}}/main/installer-{{arch}}/current/images/netboot/ubuntu-installer/{{arch}}",
+    "kernel": "{{image_base_url}}/linux",
+    "module": "{{image_base_url}}/initrd.gz",
+    "kernel_opts": "DEBCONF_DEBUG=5 auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-s etup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false interface=eth0 hostname=localhost domain=localdomain url={{base_url}}/api/1.0/templates/{{preseed}}/${uuid} vga=normal quiet --",
+    "ipxe_script": "linux.ipxe"
+}

@@ -1,0 +1,8 @@
+{
+  "groups": [
+    "centos6",
+    "centos.amd64"
+  ],
+  "hostname": "test-200",
+  "ipaddr": "192.168.10.200"
+}

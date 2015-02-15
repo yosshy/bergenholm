@@ -1,0 +1,4 @@
+{
+    "groups": ["default"],
+    "ipxe_script": "register.ipxe"
+}
