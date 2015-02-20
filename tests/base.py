@@ -46,8 +46,9 @@ class TestCase(unittest.TestCase):
         u"image_base_url": u"{{base_url}}/images",
         u"kernel": u"{{image_base_url}}/linux",
         u"module": u"{{image_base_url}}/initrd.gz",
+        u"module1": u"{{image_base_url}}/initrd1.gz",
         u"kernel_opts": u"quiet",
-        u"ipxe_script": u"linux.ipxe"
+        u"ipxe_script": u"ubuntu.temp"
     }
 
     group_id2 = u"centos"
@@ -59,7 +60,7 @@ class TestCase(unittest.TestCase):
         u"module": u"{{image_base_url}}/initrd.img",
         u"api_url": u"{{base_url}}/api/1.0",
         u"kernel_opts": u"ks={{api_url}}/templates/{{kickstart}}/${uuid}",
-        u"ipxe_script": u"linux.ipxe"
+        u"ipxe_script": u"ubuntu.temp"
     }
 
     template_id = u"ubuntu.temp"

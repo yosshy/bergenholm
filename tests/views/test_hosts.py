@@ -50,13 +50,14 @@ class HostsViewTestCase(base.TestCase):
             u'hostname': u'test-200',
             u'image_base_url': u'http://127.0.0.1/images',
             u'ipaddr': u'192.168.10.200',
-            u'ipxe_script': u'linux.ipxe',
+            u'ipxe_script': u'ubuntu.temp',
             u'kernel': u'http://127.0.0.1/images/linux',
             u'kernel_opts': u'quiet',
             u'mirror_host': u'jp.archive.ubuntu.com',
             u'mirror_path': u'/ubuntu',
             u'mirror_scheme': u'http',
             u'module': u'http://127.0.0.1/images/initrd.gz',
+            u'module1': u'http://127.0.0.1/images/initrd1.gz',
             u'test': u'test'}
 
         result = self.client.get(API + self.host_id + "?params=all")
