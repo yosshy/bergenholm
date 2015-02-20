@@ -3,7 +3,7 @@ import requests
 
 from flask import (
     Blueprint, Response,
-    abort, stream_with_context,
+    abort, stream_with_context, make_response,
     render_template_string
 )
 
@@ -59,11 +59,12 @@ def kernel(uuid):
 def module(uuid, module_id):
     params = get_host_params(uuid)
     url = params.get('module%d' % module_id)
-    if url is None:
-        url = params.get('module')
-        if url is None:
-            abort(404)
-    return proxy(url, params)
+    if url is not None:
+        return proxy(url, params)
+    url = params.get('module')
+    if url is not None and module_id == 0:
+        return proxy(url, params)
+    abort(404)
 
 
 @ipxe.route('/register/<uuid>')
