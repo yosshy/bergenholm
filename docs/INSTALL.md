@@ -1,5 +1,5 @@
-Installing Bergenholm
-=====================
+# Installing Bergenholm
+
 
 Install ISC DHCP server, TFTP server, MongoDB, iPXE, curl, pip and git. On Ubuntu 14.04, type a command below: 
 ```
@@ -12,7 +12,7 @@ $ sudo service tftpd-hpa restart
 ```
 Install Flask-PyMongo and Flask-Actions.
 ```
-$ sudo pip install flask-pymongo flask-actions requests
+$ sudo pip install flask-pymongo flask-actions requests Werkzeug==0.9.4
 ```
 Download Bergenholm.
 ```
@@ -34,12 +34,11 @@ $ sudo python manage.py runserver -p 80 &
 Register fixtures.
 ```
 $ cd fixture
-$ sh register.sh
+$ ./register.sh
 ```
 Test it. Say Bergenholm server's IP is 192.168.10.254.
 ```
-$ curl http://127.0.0.1/hosts/
-opc@ubuntu1404-x8664:~/bergenholm$ curl http://127.0.0.1/api/1.0/hosts/
+$ curl http://127.0.0.1/api/1.0/hosts/
 {
   "hosts": [
     "samplehost",
@@ -47,7 +46,7 @@ opc@ubuntu1404-x8664:~/bergenholm$ curl http://127.0.0.1/api/1.0/hosts/
     "register",
   ]
 }
-$ curl -v http://127.0.0.1/groups/
+$ curl -v http://127.0.0.1/api/1.0/groups/
 {
   "groups": [
     "default",
@@ -63,7 +62,7 @@ $ curl -v http://127.0.0.1/groups/
     "ubuntu.x86"
   ]
 }
-$ curl http://127.0.0.1/templates/
+$ curl http://127.0.0.1/api/1.0/templates/
 {
   "templates": [
     "linux.ipxe",
@@ -71,7 +70,7 @@ $ curl http://127.0.0.1/templates/
     "centos6.kickstart"
   ]
 }
-$ curl http://127.0.0.1/hosts/samplehost
+$ curl http://127.0.0.1/api/1.0/hosts/samplehost
 {
   "groups": [
     "centos6",
@@ -80,7 +79,7 @@ $ curl http://127.0.0.1/hosts/samplehost
   "hostname": "test-200",
   "ipaddr": "192.168.10.200"
 }
-$ curl http://127.0.0.1/hosts/samplehost?params=all
+$ curl http://127.0.0.1/api/1.0/hosts/samplehost?params=all
 {
   "arch": "x86_64",
   "base_url": "http://192.168.10.254",
@@ -106,6 +105,7 @@ $ curl http://127.0.0.1/hosts/samplehost?params=all
 }
 ```
 Edit /etc/dhcp/dhcpd.conf. bergenholm/examples/dhcpd.conf helps you.
+Also, you may have to edit /etc/default/isc-dhcp-server to specify network device(s) for dhcpd.
 
 Copy undionly.kpxe to TFTP root directory.
 ```

@@ -1,5 +1,4 @@
-Bergenholm: Basic Usage with bergenholmclient
-=============================================
+# Bergenholm: Basic Usage with bergenholmclient
 
 
 After installing bergenholm and bergenholmclient, 

@@ -1,11 +1,9 @@
-Bergenholm
-==========
+# Bergenholm
 
 Bergenholm is a simple kickstart install server like Cobbler or MAAS.
 
 
-Features
---------
+## Features
 
 * Depends on iPXE; iPXE is a PXE boot loader for x86/x86-64. iPXE has
   many features. Bergenholm uses some of them like HTTP downloading,
@@ -35,14 +33,12 @@ Features
   develop Bergenholm with Python.
 
 
-Structure
----------
+## Structure
 
 ![Figure: Structure](https://github.com/yosshy/bergenholm/raw/master/docs/structure.png)
 
 
-Boot Sequence
--------------
+## Boot Sequence
 
 (IT=Install Target, KS=Kickstart Install Server)
 
@@ -75,35 +71,35 @@ or (for registration)
 10. IT: boots from local storage (by iPXE)
 
 
-Install
--------
+## Install
 
 See INSTALL.md (https://github.com/yosshy/bergenholm/blob/master/docs/INSTALL.md) for details.
 
-Usage
------
+
+## Usage
+
 See USAGE.md (https://github.com/yosshy/bergenholm/blob/master/docs/USAGE.md) for details.
 If you have bergenholmclient installed, you will like USAGE_CLI.md 
 (https://github.com/yosshy/bergenholm/blob/master/docs/USAGE_CLI.md).
 
-APIs
-----
+
+## APIs
+
 See API.md (https://github.com/yosshy/bergenholm/blob/master/docs/API.md) for details.
 
 
-FAQs
-----
+## FAQs
+
 See FAQ.md (https://github.com/yosshy/bergenholm/blob/master/docs/FAQ.md).
 
 
-Notes
------
+## Notes
 
 * ubuntu1404.preseed is based on https://github.com/wnoguchi/ubuntu_documents/tree/master/preseed
 * centos6.kickstart is based on https://github.com/CentOS/Community-Kickstarts
 
-License
--------
+
+## License
 
 Apache License ver.2.0. See LICENSE for details.
 

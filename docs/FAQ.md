@@ -1,5 +1,6 @@
 # Bergenholm: FAQs
 
+
 ## What is Bergenholm?
 
 Bergenholm is a kickstart install server like below:
@@ -21,9 +22,9 @@ Bergenholm is a simple and small program, but it has significant features.
 ## Why Bergenholm was created?
 
 * Local repositories are useful for mass servers installation, but not
-  necessary for only one. MAAS and Cobbler aren't fit at the
-  case. Bergenholm doesn't need them, but it can be used with the
-  existing repos.
+  necessary for only one or a few. MAAS and Cobbler aren't fit at the
+  case because they need to have local repositories. Bergenholm
+  doesn't, but it can be used with the existing repos.
 
 * MAAS and Cobbler are too complex to be developed. Bergenholm is
   Flask based, so it's easy to learn and hack it.
@@ -52,7 +53,7 @@ http://en.wikipedia.org/wiki/Bergenholm_space_drive
 
 * Looking for name of FTL technology like Ansible.
 * No existing software (especially OSS) named it.
-* www.bergenholm.com is free now.
+* bergenholm.com is free now.
 
 ## What about authentication?
 
@@ -64,7 +65,10 @@ Modify linux.ipxe or register a new .ipxe template like below:
 
 <pre>
 #!ipxe
-kernel {{repos_url}}/path/to/image/vmlinuz
-module {{repos_url}}/path/to/image/initrd
+kernel {{repos_url}}/path/to/vmlinuz ks=...
+module {{repos_url}}/path/to/initrd
 boot
 </pre>
+
+You have to specify the new .ipxe template in host/group parameters if
+you added it.

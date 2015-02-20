@@ -1,5 +1,4 @@
-Bergenholm: Basic Usage
-=======================
+# Bergenholm: Basic Usage
 
 
 After installing bergenholm, 

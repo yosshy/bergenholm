@@ -1,9 +1,7 @@
-Bergenholm REST API Reference
-=============================
+# Bergenholm REST API Reference
 
 
-Host APIs
----------
+## Host APIs
 
 Bergenholm has 6 host APIs. HTTP requests/responses are JSON.
 
@@ -110,7 +108,6 @@ HTTP response:
   - 400(uuid alredy exists / JSON is wrong)
 - Body: none
 
-
 ### ```PUT /api/1.0/hosts/<uuid>```
 
 Update host parameters.
@@ -151,8 +148,8 @@ HTTP response:
 - Body: none
 
 
-Group APIs
-----------
+
+## Group APIs
 
 Bergenholm has 6 group APIs. HTTP requests/responses are JSON.
 
@@ -291,8 +288,8 @@ HTTP response:
 - Body: none
 
 
-Template APIs
--------------
+
+## Template APIs
 
 Bergenholm has 6 Template APIs. HTTP requests/response are text.
 
@@ -414,8 +411,8 @@ HTTP response:
 - Body: none
 
 
-iPXE APIs
----------
+
+## iPXE APIs
 
 ### ```GET /ipxe/script/<uuid>```
 
