@@ -2,6 +2,8 @@
 
 Bergenholm is a simple kickstart install server like Cobbler or MAAS.
 
+Japanese version is README.ja.md
+(https://github.com/yosshy/bergenholm/blob/master/README.ja.md).
 
 ## Features
 
