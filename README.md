@@ -2,17 +2,17 @@
 
 Bergenholm is a simple kickstart install server like Cobbler or MAAS.
 
-Japanese version is README.ja.md
+Japanese version of this document is README.ja.md
 (https://github.com/yosshy/bergenholm/blob/master/README.ja.md).
 
 ## Features
 
-* Depends on iPXE; iPXE is a PXE boot loader for x86/x86-64. iPXE has
-  many features. Bergenholm uses some of them like HTTP downloading,
-  iPXE scripting and per-host parameters.
+* Using iPXE efficiently; iPXE is a PXE boot loader for x86/
+  x86-64. iPXE has many features. Bergenholm uses some of them like
+  HTTP downloading, iPXE scripting and per-host parameters.
 
-* No Repository Inside; Cobbler and MAAS have local repositories they
-  manage. Bergenholm doesn't handle them. Of course, you can build
+* No Repository Inside; while Cobbler and MAAS have local repositories
+  they manage, Bergenholm doesn't need them. Of course, you can build
   local repositories manually and make Bergenholm using them.
 
 * REST APIs; Bergenholm has RESTful APIs for templates, hosts, groups
@@ -26,13 +26,14 @@ Japanese version is README.ja.md
   and parameters. You can use templates with host/group parameters for
   Kickstart/Preseed files, iPXE scripts, and so on.  Additionally, you
   can use parameters in parameters. No restriction for parameter
-  usage.
+  usage except reserved ones.
 
-* Streaming Remote Images; Bergenholm can fetch remote kernel/initrd
-  images and fowarding (streaming) them to installing targets.
+* Streaming Remote Images; Bergenholm can fetch kernel/initrd images
+  on remote sites and fowarding (streaming) them to installing
+  targets.
 
-* Written in Flask-PyMongo; So backend database is MongoDB. You can
-  develop Bergenholm with Python.
+* Written in Flask-PyMongo and Flask-Action; So backend database is
+  MongoDB. You can develop Bergenholm with Python.
 
 
 ## Structure
@@ -75,7 +76,9 @@ or (for registration)
 
 ## Install
 
-See INSTALL.md (https://github.com/yosshy/bergenholm/blob/master/docs/INSTALL.md) for details.
+See INSTALL.md
+(https://github.com/yosshy/bergenholm/blob/master/docs/INSTALL.md) for
+details.
 
 
 ## Usage
@@ -85,24 +88,34 @@ If you have bergenholmclient installed, you will like USAGE_CLI.md
 (https://github.com/yosshy/bergenholm/blob/master/docs/USAGE_CLI.md).
 
 
+## Client
+
+* Command line tool (https://github.com/yosshy/bergenholmclient)
+
+
 ## APIs
 
-See API.md (https://github.com/yosshy/bergenholm/blob/master/docs/API.md) for details.
+See API.md
+(https://github.com/yosshy/bergenholm/blob/master/docs/API.md) for
+details.
 
 
 ## FAQs
 
-See FAQ.md (https://github.com/yosshy/bergenholm/blob/master/docs/FAQ.md).
+See FAQ.md
+(https://github.com/yosshy/bergenholm/blob/master/docs/FAQ.md).
 
 
 ## Notes
 
-* ubuntu1404.preseed is based on https://github.com/wnoguchi/ubuntu_documents/tree/master/preseed
-* centos6.kickstart is based on https://github.com/CentOS/Community-Kickstarts
+* ubuntu1404.preseed is based on
+  https://github.com/wnoguchi/ubuntu_documents/tree/master/preseed
+* centos6.kickstart is based on
+  https://github.com/CentOS/Community-Kickstarts
 
 
 ## License
 
 Apache License ver.2.0. See LICENSE for details.
 
-Note: centos6.kickstart is under GPLv2. ubuntu1404.preseed has no license displayed.
+Note: centos6.kickstart is under GNU GPL ver.2. ubuntu1404.preseed has no license displayed.
