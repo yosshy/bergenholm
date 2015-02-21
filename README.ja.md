@@ -1,6 +1,6 @@
 # Bergenholm
 
-Bergenholm（バーゲンホルム) は Cobbler や MAAS のような、シンプルなキッ
+Bergenholm (バーゲンホルム) は Cobbler や MAAS のような、シンプルなキッ
 クスタートインストールサーバです。
 
 ## 特長
@@ -32,7 +32,7 @@ Bergenholm（バーゲンホルム) は Cobbler や MAAS のような、シン�
   イルを転送（ストリーミング）する事ができます。
 
 * Flask-PyMongo/Flask-Action ベース：バックエンド DB は MongoDB です。
-  あた、Python で Bergenholm を開発する事ができます。
+  また、Python で Bergenholm を開発する事ができます。
 
 
 ## 構造
@@ -76,38 +76,38 @@ Bergenholm（バーゲンホルム) は Cobbler や MAAS のような、シン�
 
 ## インストール
 
-INSTALL.ja.md
+[INSTALL.ja.md]
 (https://github.com/yosshy/bergenholm/blob/master/docs/INSTALL.ja.md)
 を参照して下さい。
 
 
 ## 使用法
 
-USAGE.ja.md
-(https://github.com/yosshy/bergenholm/blob/master/docs/USAGE.ja.md) を
-参照して下さい。bergenholmclient をインストールしている場合は、
-USAGE_CLI.ja.md
+[USAGE.ja.md]
+(https://github.com/yosshy/bergenholm/blob/master/docs/USAGE.ja.md) 
+を参照して下さい。bergenholmclient をインストールしている場合は、
+[USAGE_CLI.ja.md]
 (https://github.com/yosshy/bergenholm/blob/master/docs/USAGE_CLI.ja.md)
 の方が良いでしょう。
 
 
 ## クライアント
 
-* コマンドラインツール (https://github.com/yosshy/bergenholmclient)
+* [コマンドラインツール](https://github.com/yosshy/bergenholmclient)
 
 
 ## API
 
-API.ja.md
-(https://github.com/yosshy/bergenholm/blob/master/docs/API.ja.md) を参
-照して下さい。
+[API.ja.md]
+(https://github.com/yosshy/bergenholm/blob/master/docs/API.ja.md) 
+を参照して下さい。
 
 
 ## FAQ
 
-FAQ.ja.md
-(https://github.com/yosshy/bergenholm/blob/master/docs/FAQ.ja.md) を参
-照して下さい。
+[FAQ.ja.md]
+(https://github.com/yosshy/bergenholm/blob/master/docs/FAQ.ja.md) 
+を参照して下さい。
 
 
 ## 注記

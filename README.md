@@ -2,7 +2,7 @@
 
 Bergenholm is a simple kickstart install server like Cobbler or MAAS.
 
-Japanese version of this document is README.ja.md
+Japanese version of this document is [README.ja.md]
 (https://github.com/yosshy/bergenholm/blob/master/README.ja.md).
 
 ## Features
@@ -38,7 +38,8 @@ Japanese version of this document is README.ja.md
 
 ## Structure
 
-![Figure: Structure](https://github.com/yosshy/bergenholm/raw/master/docs/structure.png)
+![Figure: Structure]
+(https://github.com/yosshy/bergenholm/raw/master/docs/structure.png)
 
 
 ## Boot Sequence
@@ -76,33 +77,34 @@ or (for registration)
 
 ## Install
 
-See INSTALL.md
+See [INSTALL.md]
 (https://github.com/yosshy/bergenholm/blob/master/docs/INSTALL.md) for
 details.
 
 
 ## Usage
 
-See USAGE.md (https://github.com/yosshy/bergenholm/blob/master/docs/USAGE.md) for details.
-If you have bergenholmclient installed, you will like USAGE_CLI.md 
+See [USAGE.md]
+(https://github.com/yosshy/bergenholm/blob/master/docs/USAGE.md) for details.
+If you have bergenholmclient installed, you will like [USAGE_CLI.md]
 (https://github.com/yosshy/bergenholm/blob/master/docs/USAGE_CLI.md).
 
 
 ## Client
 
-* Command line tool (https://github.com/yosshy/bergenholmclient)
+* [Command line tool](https://github.com/yosshy/bergenholmclient)
 
 
 ## APIs
 
-See API.md
+See [API.md]
 (https://github.com/yosshy/bergenholm/blob/master/docs/API.md) for
 details.
 
 
 ## FAQs
 
-See FAQ.md
+See [FAQ.md]
 (https://github.com/yosshy/bergenholm/blob/master/docs/FAQ.md).
 
 
