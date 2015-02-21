@@ -3,15 +3,15 @@
 
 ## Host APIs
 
-Bergenholm has 6 host APIs. HTTP requests/responses are JSON.
+Bergenholm has 6 host APIs. HTTP bodies of requests/responses are JSON.
 
 ### ```GET /api/1.0/hosts/```
 
-List hosts.
+Retrieve host list.
 
 HTTP response:
-- State:
-  -  200(success)
+- Status code:
+  -  200 (success)
 - Body:
   <pre>
   {
@@ -25,15 +25,15 @@ HTTP response:
 
 ### ```GET /api/1.0/hosts/<uuid>```
 
-Show host parameters.
+Retrieve host parameters.
 
 HTTP request:
 - uuid: host id
 
 HTTP response:
-- State:
-  - 200(success)
-  - 404(uuid not found)
+- Status code:
+  - 200 (success)
+  - 404 (uuid not found)
 - Body (example):
   <pre>
   {
@@ -48,15 +48,15 @@ HTTP response:
 
 ### ```GET /api/1.0/hosts/<uuid>?params=all```
 
-Show host parameters with its group parameters.
+Retrieve host parameters inherited its group parameters.
 
 HTTP request:
 - uuid: host id
 
 HTTP response:
-- State:
-  - 200(success)
-  - 404(uuid not found)
+- Status code:
+  - 200 (success)
+  - 404 (uuid not found)
 - Body (example):
   <pre>
   {
@@ -103,9 +103,9 @@ HTTP request:
   </pre>
 
 HTTP response:
-- State:
-  - 201(created)
-  - 400(uuid alredy exists / JSON is wrong)
+- Status code:
+  - 201 (created)
+  - 400 (uuid alredy exists / JSON is wrong)
 - Body: none
 
 ### ```PUT /api/1.0/hosts/<uuid>```
@@ -114,8 +114,7 @@ Update host parameters.
 
 HTTP request:
 - uuid: host id
-
-HTTP request body (example):
+- Body (example):
 <pre>
 {
   "groups": [
@@ -128,10 +127,10 @@ HTTP request body (example):
 </pre>
 
 HTTP response:
-- State:
-  - 202(accepted)
-  - 400(JSON is wrong)
-  - 404(not found)
+- Status code:
+  - 202 (accepted)
+  - 400 (JSON is wrong)
+  - 404 (not found)
 - Body: none
 
 ### ```DELETE /api/1.0/hosts/<uuid>```
@@ -142,24 +141,24 @@ HTTP request:
 - uuid: host id
 
 HTTP response:
-- State:
-  - 204(deleted)
-  - 404(not found)
+- Status code:
+  - 204 (deleted)
+  - 404 (not found)
 - Body: none
 
 
 
 ## Group APIs
 
-Bergenholm has 6 group APIs. HTTP requests/responses are JSON.
+Bergenholm has 6 group APIs. HTTP bodies of requests/responses are JSON.
 
 ### ```GET /api/1.0/groups/```
 
-List groups.
+Retrieve group list.
 
 HTTP response:
-- State:
-  - 200(success)
+- Status code:
+  - 200 (success)
 - Body (example):
   <pre>
   {
@@ -182,15 +181,15 @@ HTTP response:
 
 ### ```GET /api/1.0/groups/<name>```
 
-Show group parameters.
+Retrieve group parameters.
 
 HTTP request:
 - name: group name
 
 HTTP response:
-- State:
-  - 200(success)
-  - 404(uuid not found)
+- Status code:
+  - 200 (success)
+  - 404 (uuid not found)
 - Body (example):
   <pre>
   {
@@ -203,15 +202,15 @@ HTTP response:
 
 ### ```GET /api/1.0/groups/<name>?params=all```
 
-Show group parameters with its group parameters.
+Retrieve group parameters inherited its group parameters.
 
 HTTP request:
 - name: group name
 
 HTTP response:
-- State:
-  - 200(success)
-  - 404(uuid not found)
+- Status code:
+  - 200 (success)
+  - 404 (uuid not found)
 - Body (example):
   <pre>
   {
@@ -245,9 +244,9 @@ HTTP request:
   </pre>
 
 HTTP response:
-- State:
-  - 201(created)
-  - 400(uuid alredy exists / JSON is wrong)
+- Status code:
+  - 201 (created)
+  - 400 (uuid alredy exists / JSON is wrong)
 - Body: none
 
 
@@ -268,10 +267,10 @@ HTTP request:
   </pre>
 
 HTTP response:
-- State:
-  - 202(accepted)
-  - 400(JSON is wrong)
-  - 404(not found)
+- Status code:
+  - 202 (accepted)
+  - 400 (JSON is wrong)
+  - 404 (not found)
 - Body: none
 
 ### ```DELETE /api/1.0/groups/<name>```
@@ -282,25 +281,25 @@ HTTP request:
 - name: group name
 
 HTTP response:
-- State:
-  - 204(deleted)
-  - 404(not found)
+- Status code:
+  - 204 (deleted)
+  - 404 (not found)
 - Body: none
 
 
 
 ## Template APIs
 
-Bergenholm has 6 Template APIs. HTTP requests/response are text.
+Bergenholm has 6 Template APIs. HTTP bodies of requests/responses are text.
 
 ### ```GET /api/1.0/templates/```
 
-List templates.
+Retrieve template list.
 
 HTTP response:
 
-- State:
-  - 200(success)
+- Status code:
+  - 200 (success)
 - Body (example):
   <pre>
   {
@@ -316,15 +315,15 @@ HTTP response:
 
 ### ```GET /api/1.0/templates/<name>```
 
-Show template.
+Retrieve a template.
 
 HTTP request:
 - name: template name
 
 HTTP response:
-- State:
-  - 200(success)
-  - 404(uuid not found)
+- Status code:
+  - 200 (success)
+  - 404 (uuid not found)
 - Body (example):
   <pre>
   #!ipxe
@@ -354,21 +353,21 @@ HTTP response:
 
 ### ```GET /api/1.0/templates/<name>/<uuid>```
 
-Render template with host parameters.
+Render a template with host parameters specified.
 
 HTTP request:
 - name: template name
 - uuid: host id
 
 HTTP response:
-- State:
-  - 200(success)
-  - 404(uuid not found)
-- Body: rendered text file with specified template and host parameters.
+- Status code:
+  - 200 (success)
+  - 404 (uuid not found)
+- Body: template rendered with host parameters specified.
 
 ### ```POST /api/1.0/templates/<name>```
 
-Register template parameters.
+Register a template.
 
 HTTP request:
 - name: template name
@@ -376,38 +375,37 @@ HTTP request:
 - Body: any text file
 
 HTTP response:
-- State:
-  - 201(created)
-  - 400(uuid alredy exists / JSON is wrong)
+- Status code:
+  - 201 (created)
+  - 400 (uuid alredy exists / JSON is wrong)
 - Body: none
 
 ### ```PUT /api/1.0/templates/<name>```
 
-Update template parameters.
+Update a template.
 
 HTTP request:
 - name: template name
+- Body: any text file
 
-HTTP request body: any text file
 HTTP response:
-
-- State:
-  - 202(accepted)
-  - 400(JSON is wrong)
-  - 404(not found)
+- Status code:
+  - 202 (accepted)
+  - 400 (JSON is wrong)
+  - 404 (not found)
 - Body: none
 
 ### ```DELETE /api/1.0/templates/<name>```
 
-Delete template parameters.
+Delete a template.
 
 HTTP request:
 - name: template name
 
 HTTP response:
-- State:
-  - 204(deleted)
-  - 404(not found)
+- Status code:
+  - 204 (deleted)
+  - 404 (not found)
 - Body: none
 
 
@@ -416,15 +414,15 @@ HTTP response:
 
 ### ```GET /ipxe/script/<uuid>```
 
-Get iPXE script rendered for host.
+Get an iPXE script rendered for host.
 
 HTTP request:
 - uuid: host id
 
 HTTP response:
-- State:
-  - 200(success)
-  - 404(uuid not found)
+- Status code:
+  - 200 (success)
+  - 404 (uuid not found)
 - Body (example):
   <pre>
   #!ipxe
@@ -434,16 +432,16 @@ HTTP response:
 
 ### ```GET /ipxe/kernel/<uuid>```
 
-Get kernel image for booting OS. It will be fetched from
-remote site specified "kernel" parameter.
+Retrieve a kernel image for booting OS. It will be fetched from remote
+site specified URL at "kernel" parameter.
 
 HTTP request:
 - uuid: host id
 
 HTTP response:
-- State:
-  - 200(success)
-  - 404(uuid not found)
+- Status code:
+  - 200 (success)
+  - 404 (uuid not found)
 - Body (example): vmlinuz image file
 
 ### ```GET /ipxe/initrd/kernel/<uuid>```
@@ -451,26 +449,26 @@ HTTP response:
 ### ```GET /ipxe/initrd/kernel/<uuid>/<number>```
 ### ```GET /ipxe/module/kernel/<uuid>/<number>```
 
-Get module(initrd) image for booting OS. It will be fetched from
-remote site specified "module" parameter or "module/0". If number
-is specified, "```module<number>```" parameter is used.
+Retrieve a module (initrd) image for booting OS. It will be fetched
+from remote site specified URL at "module" parameter or "module/0". If
+number is specified, "```module<number>```" parameter is used.
 
 HTTP response:
-- State:
-  - 200(success)
-  - 404(uuid not found)
+- Status code:
+  - 200 (success)
+  - 404 (uuid not found)
 - Body (example): initrd image file
 
 ### ```GET /ipxe/register/<uuid>```
 
-Register host ```<uuid>``` to Bergenholm.
+Register a host ```<uuid>``` to Bergenholm.
 
 HTTP request:
 - Parameter:
   - uuid: host id
 
 HTTP response:
-- State:
-  - 201(success)
-  - 400(uuid already exists)
+- Status code:
+  - 201 (success)
+  - 400 (uuid already exists)
 - Body: none
