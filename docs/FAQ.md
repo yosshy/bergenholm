@@ -4,20 +4,20 @@
 ## What is Bergenholm?
 
 Bergenholm is a kickstart install server like below:
-* Cobbler (http://www.cobblerd.org/)
-* MAAS (https://maas.ubuntu.com/)
+* [Cobbler](http://www.cobblerd.org/)
+* [MAAS](https://maas.ubuntu.com/)
 
 ## How distinctive is Bergenholm?
 
 Bergenholm is a simple and small program, but it has significant features.
 
 * Only REST APIs
-* Using iPXE (http://ipxe.org/) efficiently
+* Using [iPXE](http://ipxe.org/) efficiently
 * No repository inside
 * Parameter inheritance from groups
 * Jinja2 templating for iPXE script, kickstart/preseed and other usages
 * Streaming Remote Images (via web proxy)
-* Written in Flask-PyMongo
+* Written in Flask-PyMongo and Flask-Actions
 
 ## Why Bergenholm was created?
 

@@ -1,25 +1,25 @@
-# Bergenholm: FAQ
+# Bergenholm: よくある質問
 
 
 ## Bergenholm って何？
 
 Bergenholm は以下と同様のキックスタートインストールです。
 
-* Cobbler (http://www.cobblerd.org/)
-* MAAS (https://maas.ubuntu.com/)
+* [Cobbler](http://www.cobblerd.org/)
+* [MAAS](https://maas.ubuntu.com/)
 
 ## Bergenholm の特長は？
 
 Bergenholm はシンプルで小さなプログラムですが、以下の特長があります。
 
 * REST API のみ
-* iPXE (http://ipxe.org/) を効果的に使用
+* [iPXE](http://ipxe.org/) を効果的に使用
 * ローカルリポジトリ無し
 * グループからのパラメータ継承
 * Jinja2 テンプレート（iPXE スクリプト、kickstart/pressed ファイル、あ
   るは他の用途)
 * (Web プロキシ経由の) リモートファイル転送
-* Flask-PyMongo で開発
+* Flask-PyMongo/Flask-Actions で開発
 
 ## 何故 Bergenholm を作ったの？
 
@@ -32,7 +32,7 @@ Bergenholm はシンプルで小さなプログラムですが、以下の特長
 * MAAS や Cobbler は複雑で開発に不向きです。Bergenholm は Flask ベース
   なので、内容を学習して改造するのも簡単です。
 
-* iPXE は新しくて優れたネットワークブートローダです((特に HTTP 経由での
+* iPXE は新しくて優れたネットワークブートローダです(特に HTTP 経由での
   イメージ取得機能)。しかし、iPXE を有効活用したソフトウェアはありませ
   ん。Bergenholm は iPXE を有効活用した最初のソフトウェアかも知れません。
 
@@ -44,9 +44,9 @@ Bergenholm はシンプルで小さなプログラムですが、以下の特長
   タを継承できます。ご想像通り、groups は group 名のリストです。
 
 * Cobbler と MAAS は、それらが管理する DHCP サービス(と DNS サービス)の
-  為に HA クラスタの構築が難しいです。Bergenholm は単なる Web サーバで
-  あり、DHCP 設定を管理しません。よって、Bergenholm は簡単に冗長／負荷
-  分散クラスタ化できます。
+  為に HA クラスタの構築が難しいです。Bergenholm は単なる Web アプリケー
+  ションであり、DHCP 設定を管理しません。よって、Bergenholm は簡単に冗
+  長／負荷分散クラスタ化できます。
 
 ## 何故 Bergenholm という名前にしたの？
 

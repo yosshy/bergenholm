@@ -103,7 +103,7 @@ Bergenholm (バーゲンホルム) は Cobbler や MAAS のような、シンプ
 を参照して下さい。
 
 
-## FAQ
+## よくある質問
 
 [FAQ.ja.md]
 (https://github.com/yosshy/bergenholm/blob/master/docs/FAQ.ja.md) 
