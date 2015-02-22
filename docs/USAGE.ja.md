@@ -3,8 +3,9 @@
 
 bergenholm をインストールした後、
 
-1. インストール先サーバを手動で起動します。
-   ネットワークブートが開始されると、スクリーンに以下のメッセージが表示されます。
+1. インストール先サーバを手動で起動します。ネットワークブートが開始され
+   ると、スクリーンに以下のメッセージが表示されます。
+
    <pre>
    ...
    ===== System UUID is XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX =====
@@ -12,8 +13,12 @@ bergenholm をインストールした後、
    ...
    ===== Trying boot from local disk =====
    </pre>
-   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX is the system UUID of your install-target.
+
+   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX はインストール先サーバのシステ
+   ム UUID です。
+
 2. キックスタートインストールサーバ上のホストエントリを確認します。
+
    <pre>
    $ curl http://127.0.0.1/api/1.0/hosts/                                                      {
    {
@@ -32,7 +37,9 @@ bergenholm をインストールした後、
      ]
    }
    </pre>
+
 3. サンプルのパラメータファイルを取得します。
+
    <pre>
    $ curl http://127.0.0.1/api/1.0/hosts/samplehost > /tmp/params
    $ cat /tmp/params
@@ -45,20 +52,30 @@ bergenholm をインストールした後、
      "ipaddr": "192.168.10.200"
    }
    </pre>
-   groups、hostname、ipaddr の３パラメータがあり、変更可能です。
-   Ubuntu 14.04 をインストールする場合、groups パラメータを下記のように変更します。
+
+   groups、hostname、ipaddr の３パラメータがあり、変更可能です。Ubuntu
+   14.04 をインストールする場合、groups パラメータを下記のように変更し
+   ます。
+
    <pre>
      "groups": [
        "ubuntu1404",
        "ubuntu.amd64"
      ],
    </pre>
+
 4. 取得したパラメータファイルインストール先サーバ用に修正します。
+
    <pre>
    $ curl -H "Content-Type: application/json" -X PUT --data-binary @/tmp/params http://127.0.0.1/api/1.0/hosts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    </pre>
-5. インストール先サーバを再起動すると、キックスタートインストールが開始されます。
-6. インストール後、インストール先サーバのパラメータをデフォルトのローカルストレージ起動に戻します。
+
+5. インストール先サーバを再起動すると、キックスタートインストールが開始
+   されます。
+
+6. インストール後、インストール先サーバのパラメータをデフォルトのローカ
+   ルストレージ起動に戻します。
+
    <pre>
    $ curl -H "Content-Type: application/json" -X PUT --data-binary @/tmp/default http://127.0.0.1/api/1.0/hosts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    </pre>
