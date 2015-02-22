@@ -27,7 +27,9 @@ Bergenholm (バーゲンホルム) は Cobbler や MAAS のような、シンプ
 * Jinja2 テンプレート: Bergenholm は Jinja2 形式のテンプレートファイル
   とパラメータを扱う事ができます。Kickstart や Preseed ファイル用途で、
   テンプレートファイルはホストやグループのパラメータを使用する事ができ
-  ます。予約パラメータを除き、パラメータ定義に制約はありません。
+  ます。[予約パラメータ]
+  (https://github.com/yosshy/bergenholm/blob/master/docs/RESERVED_PARAMS.ja.md)
+  を除き、パラメータ定義に制約はありません。
 
 * リモートファイルのストリーミング: Bergenholm はリモートサイト上のカー
   ネルや initrd イメージを取得し、インストール先サーバに対してそのファ

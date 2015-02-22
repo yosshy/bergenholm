@@ -26,7 +26,9 @@ Japanese version of this document is [README.ja.md]
   and parameters. You can use templates with host/group parameters for
   Kickstart/Preseed files, iPXE scripts, and so on.  Additionally, you
   can use parameters in parameters. No restriction for parameter
-  usage except reserved ones.
+  usage except [reserved parameters]
+  (https://github.com/yosshy/bergenholm/blob/master/docs/RESERVED_PARAMS.md)
+  .
 
 * Streaming Remote Images; Bergenholm can fetch kernel/initrd images
   on remote sites and fowarding (streaming) them to installing
