@@ -15,6 +15,11 @@ Flask-PyMongo、Flask-Action をインストールします。
 ```
 $ sudo pip install flask-pymongo flask-actions requests Werkzeug==0.9.4
 ```
+電源管理ドライバ用の Python モジュールをインストールします。
+```
+$ sudo apt-get install python-pyghmi python-libvirt
+$ sudo pip install pyvmomi
+```
 Bergenholm をダウンロードします。
 ```
 $ git clone https://github.com/yosshy/bergenholm.git

@@ -14,6 +14,11 @@ Install Flask-PyMongo and Flask-Actions.
 ```
 $ sudo pip install flask-pymongo flask-actions requests Werkzeug==0.9.4
 ```
+Install python modules for power management drivers.
+```
+$ sudo apt-get install python-pyghmi python-libvirt
+$ sudo pip install pyvmomi
+```
 Download Bergenholm.
 ```
 $ git clone https://github.com/yosshy/bergenholm.git

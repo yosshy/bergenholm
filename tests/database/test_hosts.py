@@ -55,7 +55,8 @@ class HostsDatabaseTestCase(base.TestCase):
             u'mirror_scheme': u'http',
             u'module': u'http://127.0.0.1/images/initrd.gz',
             u'module1': u'http://127.0.0.1/images/initrd1.gz',
-            u'test': u'test'}
+            u'test': u'test',
+            u'power_driver': u'dummy'}
         with self.app.test_request_context('/'):
             result = hosts.get_host_params(self.host_id)
             self.assertEqual(result, expected)

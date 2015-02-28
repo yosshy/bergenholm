@@ -58,6 +58,7 @@ class HostsViewTestCase(base.TestCase):
             u'mirror_scheme': u'http',
             u'module': u'http://127.0.0.1/images/initrd.gz',
             u'module1': u'http://127.0.0.1/images/initrd1.gz',
+            u'power_driver': 'dummy',
             u'test': u'test'}
 
         result = self.client.get(API + self.host_id + "?params=all")

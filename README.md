@@ -34,6 +34,10 @@ Japanese version of this document is [README.ja.md]
   on remote sites and fowarding (streaming) them to installing
   targets.
 
+* Power Management; Bergenholm can retrieve and change power status of
+  installing targets. Supported power type are IPMI, VMware and
+  Libvirt.
+
 * Written in Flask-PyMongo and Flask-Action; So backend database is
   MongoDB. You can develop Bergenholm with Python.
 

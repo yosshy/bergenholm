@@ -13,6 +13,7 @@ from bergenholm.views.ipxe import ipxe
 from bergenholm.views.hosts import hosts
 from bergenholm.views.groups import groups
 from bergenholm.views.templates import templates
+from bergenholm.views.power import power
 
 
 class TestCase(unittest.TestCase):
@@ -24,7 +25,8 @@ class TestCase(unittest.TestCase):
         u"hostname": u"test-200",
         u"ipaddr": u"192.168.10.200",
         u"groups": [u"ubuntu"],
-        u"test": u"test"
+        u"test": u"test",
+        u"power_driver": u"dummy"
     }
 
     host_id2 = u"6ab07bc6-2ee4-4ae9-b9b7-4c27806b640e"
@@ -89,6 +91,7 @@ class TestCase(unittest.TestCase):
         app.register_blueprint(hosts, url_prefix='/api/1.0/hosts')
         app.register_blueprint(groups, url_prefix='/api/1.0/groups')
         app.register_blueprint(templates, url_prefix='/api/1.0/templates')
+        app.register_blueprint(power, url_prefix='/api/1.0/power')
 
         self.app = app
         self.client = app.test_client()

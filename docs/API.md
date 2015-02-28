@@ -472,3 +472,48 @@ HTTP response:
   - 201 (success)
   - 400 (uuid already exists)
 - Body: none
+
+
+## Power API
+
+Bergenholm has 4 Power APIs. HTTP bodies ofresponses are JSON.
+
+### `GET /api/1.0/power/status/<uuid>`
+
+Retrieve power status of host `<uuid>`.
+
+HTTP request:
+- Parameter:
+  - uuid: host id (UUID)
+
+HTTP response:
+- Status code:
+  - 200 (success)
+  - 404 (uuid not found)
+- Body: 
+  <pre>
+  {
+	"power": "on"
+  }
+  </pre>
+  Note: power status is one of "on", "off" and "unknown".
+
+### `PUT /api/1.0/power/<uuid>`
+
+Change power state of host `<uuid>`.
+
+HTTP request:
+- Parameter:
+  - uuid: host id
+  <pre>
+  {
+	"power": "on"
+  }
+  </pre>
+  Note: power status is one of "on", "off" and "reset".
+
+HTTP response:
+- Status code:
+  - 202 (success)
+  - 404 (uuid not found)
+- Body: none

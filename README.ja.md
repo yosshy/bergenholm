@@ -35,6 +35,9 @@ Bergenholm (バーゲンホルム) は Cobbler や MAAS のような、シンプ
   ネルや initrd イメージを取得し、インストール先サーバに対してそのファ
   イルを転送 (ストリーミング) する事ができます。
 
+* 電源制御：Bergenholm はインストール先サーバの電源状態を取得・変更する
+  機能があります。対応する電源の種別は IPMI、VMware、libvirt です。
+
 * Flask-PyMongo/Flask-Action ベース: バックエンド DB は MongoDB です。
   また、Python で Bergenholm を開発する事ができます。
 
