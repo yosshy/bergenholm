@@ -1,0 +1,7 @@
+{
+  "groups": [
+    "centos"
+  ], 
+  "kickstart": "centos6.kickstart", 
+  "version": "7"
+}
