@@ -131,5 +131,5 @@ Bergenholm (バーゲンホルム) は Cobbler や MAAS のような、シンプ
 Bergenholm のライセンスは Apache License ver.2.0 です。LICENSE を参照し
 て下さい。
 
-注意：centos6.kickstart は GNU GPL ver.2 です。ubuntu1404.preseed のオ
-リジナルは再配布ライセンス表記がありあせん。
+注意：dhcp_server.py と centos6.kickstart は GNU GPL ver.2 です。
+ubuntu1404.preseed のオリジナルは再配布ライセンス表記がありません。

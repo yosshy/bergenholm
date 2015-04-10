@@ -126,4 +126,5 @@ See [FAQ.md]
 
 Apache License ver.2.0. See LICENSE for details.
 
-Note: centos6.kickstart is under GNU GPL ver.2. ubuntu1404.preseed has no license displayed.
+Note: dhcp_server.py and centos6.kickstart are under GNU GPL
+ver.2. ubuntu1404.preseed has no license displayed.
