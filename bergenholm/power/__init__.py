@@ -9,17 +9,17 @@ DRIVERS = {
 }
 
 
-def power_on(uuid, power_driver=None, **params):
-    DRIVERS[power_driver].power_on(uuid, **params)
+def power_on(power_driver=None, **params):
+    DRIVERS[power_driver].power_on(**params)
 
 
-def power_off(uuid, power_driver=None, **params):
-    DRIVERS[power_driver].power_off(uuid, **params)
+def power_off(power_driver=None, **params):
+    DRIVERS[power_driver].power_off(**params)
 
 
-def power_reset(uuid, power_driver=None, **params):
-    DRIVERS[power_driver].power_reset(uuid, **params)
+def power_reset(power_driver=None, **params):
+    DRIVERS[power_driver].power_reset(**params)
 
 
-def power_status(uuid, power_driver=None, **params):
-    return {"power": DRIVERS[power_driver].power_status(uuid, **params)}
+def power_status(power_driver=None, **params):
+    return {"power": DRIVERS[power_driver].power_status(**params)}

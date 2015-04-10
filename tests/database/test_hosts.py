@@ -56,7 +56,20 @@ class HostsDatabaseTestCase(base.TestCase):
             u'module': u'http://127.0.0.1/images/initrd.gz',
             u'module1': u'http://127.0.0.1/images/initrd1.gz',
             u'test': u'test',
+            u'uuid': self.host_id,
             u'power_driver': u'dummy'}
         with self.app.test_request_context('/'):
             result = hosts.get_host_params(self.host_id)
             self.assertEqual(result, expected)
+
+    def test_mark_host_installed(self):
+        with self.app.test_request_context('/'):
+            result = hosts.mark_host_installed(self.host_id)
+            params = copy.deepcopy(self.host_params)
+            params["groups"].append("installed")
+            result = hosts.get_host(self.host_id)
+            self.assertEqual(result, params)
+
+            result = hosts.unmark_host_installed(self.host_id)
+            result = hosts.get_host(self.host_id)
+            self.assertEqual(result, self.host_params)

@@ -10,6 +10,9 @@ from bergenholm.database.groups import get_group_params
 mongo = None
 jinja_env = jinja2.Environment()
 
+INSTALLED = "installed"
+UUID = "uuid"
+
 
 def get_hosts():
     hosts = mongo.db.hosts.find({}, {'_id': 1})
@@ -67,6 +70,7 @@ def get_host_params(uuid):
     if host_params is None:
         host_params = {}
     host_params.pop("_id", None)
+    host_params[UUID] = uuid
 
     current_params, _groups = get_group_params(host_params.get('groups'))
     current_params.update(host_params)
@@ -84,3 +88,27 @@ def get_host_params(uuid):
 
     logging.debug(current_params)
     return current_params
+
+
+def mark_host_installed(uuid):
+    host = mongo.db.hosts.find_one_or_404({'_id': uuid})
+    host.pop("_id", None)
+    if INSTALLED in host["groups"]:
+        abort(400)
+    host["groups"].append(INSTALLED)
+    try:
+        mongo.db.hosts.update({'_id': uuid}, host)
+    except:
+        abort(400)
+
+
+def unmark_host_installed(uuid):
+    host = mongo.db.hosts.find_one_or_404({'_id': uuid})
+    host.pop("_id", None)
+    if INSTALLED not in host["groups"]:
+        abort(400)
+    host["groups"].remove(INSTALLED)
+    try:
+        mongo.db.hosts.update({'_id': uuid}, host)
+    except:
+        abort(400)

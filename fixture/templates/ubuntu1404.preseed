@@ -34,7 +34,7 @@ d-i keyboard-configuration/modelcode jp106
 d-i netcfg/use_autoconfig boolean false 
 d-i netcfg/disable_autoconfig boolean true 
  
-d-i netcfg/choose_interface select eth0 
+d-i netcfg/choose_interface select {{netif}} 
 d-i netcfg/disable_dhcp boolean true 
 d-i netcfg/get_nameservers string {{nameserver}}
 d-i netcfg/get_ipaddress string {{ipaddr}}
@@ -138,6 +138,9 @@ d-i pkgsel/updatedb boolean true
 d-i grub-installer/grub2_instead_of_grub_legacy boolean true 
 d-i grub-installer/only_debian boolean true 
 d-i grub-installer/bootdev string /dev/sda
+
+# インストール済みマーク
+d-i preseed/late_command string wget -O - "{{installed_url}}"
  
 # インストールが終了したらサーバー再起動
 d-i finish-install/reboot_in_progress note

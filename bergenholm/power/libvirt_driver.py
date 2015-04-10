@@ -36,27 +36,27 @@ def main(url=None, uuid=None, command=None):
         raise exception("unknown command: %s" % command)
 
 
-def power_on(uuid, **params):
+def power_on(**params):
     return main(url=params["libvirt_url"],
-                uuid=uuid,
+                uuid=params["uuid"],
                 command="start")
 
 
-def power_off(uuid, **params):
+def power_off(**params):
     return main(url=params["libvirt_url"],
-                uuid=uuid,
+                uuid=params["uuid"],
                 command="stop")
 
 
-def power_reset(uuid, **params):
+def power_reset(**params):
     return main(url=params["libvirt_url"],
-                uuid=uuid,
+                uuid=params["uuid"],
                 command="reset")
 
 
-def power_status(uuid, **params):
+def power_status(**params):
     return main(url=params["libvirt_url"],
-                uuid=uuid,
+                uuid=params["uuid"],
                 command="status")
 
 

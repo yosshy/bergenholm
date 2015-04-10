@@ -106,39 +106,39 @@ def main(host=None, port=None, user=None, password=None, uuid=None,
     return 0
 
 
-def power_on(uuid, **params):
+def power_on(**params):
     return main(host=params["vmware_host"],
                 port=params.get("vmware_port", 443),
                 user=params["vmware_user"],
                 password=params["vmware_password"],
-                uuid=uuid,
+                uuid=params["uuid"],
                 command="start")
 
 
-def power_off(uuid, **params):
+def power_off(**params):
     return main(host=params["vmware_host"],
                 port=params.get("vmware_port", 443),
                 user=params["vmware_user"],
                 password=params["vmware_password"],
-                uuid=uuid,
+                uuid=params["uuid"],
                 command="stop")
 
 
-def power_reset(uuid, **params):
+def power_reset(**params):
     return main(host=params["vmware_host"],
                 port=params.get("vmware_port", 443),
                 user=params["vmware_user"],
                 password=params["vmware_password"],
-                uuid=uuid,
+                uuid=params["uuid"],
                 command="restart")
 
 
-def power_status(uuid, **params):
+def power_status(**params):
     return main(host=params["vmware_host"],
                 port=params.get("vmware_port", 443),
                 user=params["vmware_user"],
                 password=params["vmware_password"],
-                uuid=uuid,
+                uuid=params["uuid"],
                 command="status")
 
 

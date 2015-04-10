@@ -80,9 +80,36 @@ HTTP response:
     "nameserver": "192.168.0.254",
     "netmask": "255.255.255.0",
     "proxy_url": "http://proxy.example.com:8080",
+    "uuid": "42cde8ca-835d-4271-9f82-82e902cc9505",
     "version": "6"
   }
   </pre>
+
+### ```GET /api/1.0/hosts/<uuid>?installed=mark```
+
+Append "installed" group to group list.
+
+HTTP request:
+- uuid: host id
+
+HTTP response:
+- Status code:
+  - 200 (success)
+  - 404 (uuid not found)
+- Body: none
+
+### ```GET /api/1.0/hosts/<uuid>?installed=unmark```
+
+Remove "installed" group from grop list.
+
+HTTP request:
+- uuid: host id
+
+HTTP response:
+- Status code:
+  - 204 (success)
+  - 404 (uuid not found)
+- Body: none
 
 ### ```POST /api/1.0/hosts/<uuid>```
 

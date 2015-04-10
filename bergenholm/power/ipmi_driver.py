@@ -35,28 +35,28 @@ def main(host=None, port=None, user=None, password=None, command=None):
         raise exception("unknown command: %s" % command)
 
 
-def power_on(uuid, **params):
+def power_on(**params):
     return main(host=params["ipmi_host"],
                 user=params["ipmi_user"],
                 password=params["ipmi_password"],
                 command="start")
 
 
-def power_off(uuid, **params):
+def power_off(**params):
     return main(host=params["ipmi_host"],
                 user=params["ipmi_user"],
                 password=params["ipmi_password"],
                 command="stop")
 
 
-def power_reset(uuid, **params):
+def power_reset(**params):
     return main(host=params["ipmi_host"],
                 user=params["ipmi_user"],
                 password=params["ipmi_password"],
                 command="restart")
 
 
-def power_status(uuid, **params):
+def power_status(**params):
     return main(host=params["ipmi_host"],
                 user=params["ipmi_user"],
                 password=params["ipmi_password"],

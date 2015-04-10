@@ -20,11 +20,11 @@ def power_change(uuid):
         request_params = request.get_json()
         power = request_params.get("power")
         if power == "on":
-            power_driver.power_on(uuid, **host_params)
+            power_driver.power_on(**host_params)
         elif power == "off":
-            power_driver.power_off(uuid, **host_params)
+            power_driver.power_off(**host_params)
         elif power == "reset":
-            power_driver.power_reset(uuid, **host_params)
+            power_driver.power_reset(**host_params)
         else:
             abort(400)
         return make_response("", 202, [])
@@ -38,6 +38,6 @@ def power_status(uuid):
         params = get_host_params(uuid)
         if "power_driver" not in params:
             abort(400)
-        return jsonify(power_driver.power_status(uuid, **params))
+        return jsonify(power_driver.power_status(**params))
     except KeyError:
         abort(404)

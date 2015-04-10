@@ -79,10 +79,37 @@ HTTP レスポンス:
     "module": "http://mirror.centos.org/centos-6/6/os/x86_64/images/pxeboot/initrd.img",
     "nameserver": "192.168.0.254",
     "netmask": "255.255.255.0",
-    "proxy_url": "http://proxy.例.com:8080",
+    "proxy_url": "http://proxy.example.com:8080",
+    "uuid": "42cde8ca-835d-4271-9f82-82e902cc9505",
     "version": "6"
   }
   </pre>
+
+### ```GET /api/1.0/hosts/<uuid>?installed=mark```
+
+ホストのグループリストに installed グループを追加します。
+
+HTTP リクエスト:
+- uuid: ホストID (UUID)
+
+HTTP レスポンス:
+- ステータス:
+  - 200 (成功)
+  - 404 (見つからない)
+- ボディ: 無し
+
+### ```GET /api/1.0/hosts/<uuid>?installed=unmark```
+
+ホストのグループリストから installed グループを削除します。
+
+HTTP リクエスト:
+- uuid: ホストID (UUID)
+
+HTTP レスポンス:
+- ステータス:
+  - 204 (成功)
+  - 404 (見つからない)
+- ボディ: 無し
 
 ### ```POST /api/1.0/hosts/<uuid>```
 

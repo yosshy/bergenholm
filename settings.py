@@ -1,6 +1,6 @@
 # -*- encoding:utf-8 -*-
 
-#DEBUG = True
+DEBUG = True
 
 MONGO_HOST = 'localhost'
 MONGO_PORT = 27017

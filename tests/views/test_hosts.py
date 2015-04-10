@@ -1,3 +1,5 @@
+import copy
+
 from flask import json
 
 from tests import base
@@ -59,8 +61,23 @@ class HostsViewTestCase(base.TestCase):
             u'module': u'http://127.0.0.1/images/initrd.gz',
             u'module1': u'http://127.0.0.1/images/initrd1.gz',
             u'power_driver': 'dummy',
-            u'test': u'test'}
+            u'test': u'test',
+            u'uuid': self.host_id}
 
         result = self.client.get(API + self.host_id + "?params=all")
         self.assertEqual(result.status_code, 200)
         self.assertEqual(json.loads(result.data), expected)
+
+    def test_mark_host_installed(self):
+        params = copy.deepcopy(self.host_params)
+        params["groups"].append("installed")
+
+        result = self.client.get(API + self.host_id + "?installed=mark")
+        self.assertEqual(result.status_code, 200)
+        result = self.client.get(API + self.host_id)
+        self.assertEqual(json.loads(result.data), params)
+
+        result = self.client.get(API + self.host_id + "?installed=unmark")
+        self.assertEqual(result.status_code, 200)
+        result = self.client.get(API + self.host_id)
+        self.assertEqual(json.loads(result.data), self.host_params)

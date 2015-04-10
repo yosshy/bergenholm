@@ -9,7 +9,8 @@ from flask import (
 )
 
 from bergenholm.database.hosts import (
-    get_host, get_hosts, create_host, update_host, delete_host, get_host_params
+    get_host, get_hosts, create_host, update_host, delete_host,
+    get_host_params, mark_host_installed, unmark_host_installed
 )
 
 
@@ -33,6 +34,12 @@ def _create(name):
 
 @hosts.route('/<uuid>')
 def _get(uuid):
+    if request.args.get('installed') == 'mark':
+        mark_host_installed(uuid)
+        return make_response("", 200, [])
+    if request.args.get('installed') == 'unmark':
+        unmark_host_installed(uuid)
+        return make_response("", 200, [])
     if request.args.get('params') == 'all':
         return jsonify(get_host_params(uuid))
     return jsonify(get_host(uuid))

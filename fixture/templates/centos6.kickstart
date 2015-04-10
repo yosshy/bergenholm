@@ -64,7 +64,7 @@ logvol swap --vgname=vg --recommended --name=swap
 #System authorization infomation
 auth  --useshadow  --enablemd5 
 #Network information
-network --bootproto=static --ip={{ipaddr}} --netmask={{netmask}} --gateway={{gateway}} --nameserver={{nameserver}} --device=eth0 --hostname={{hostname}}
+network --bootproto=static --ip={{ipaddr}} --netmask={{netmask}} --gateway={{gateway}} --nameserver={{nameserver}} --device={{netif}} --hostname={{hostname}}
 #Firewall configuration
 firewall --disabled 
 #Do not configure the X Window System
@@ -73,4 +73,9 @@ skipx
 #%packages --resolvedeps
 %packages
 openssh-server
+wget
+%end
+
+%post
+wget -O - "{{installed_url}}"
 %end
