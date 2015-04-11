@@ -112,14 +112,14 @@ d-i partman/confirm boolean true
 d-i base-installer/install-recommends boolean true 
 d-i base-installer/kernel/image string linux-generic 
  
-d-i passwd/root-login boolean true 
-d-i passwd/make-user boolean false 
+d-i passwd/root-login boolean false 
+d-i passwd/make-user boolean true 
 d-i passwd/root-password password password 
 d-i passwd/root-password-again password password 
-d-i passwd/user-fullname string testuser 
-d-i passwd/username string testuser 
-d-i passwd/user-password password insecure 
-d-i passwd/user-password-again password insecure 
+d-i passwd/user-fullname string {{loginuser}} 
+d-i passwd/username string {{loginuser}} 
+d-i passwd/user-password password {{loginpassword}} 
+d-i passwd/user-password-again password {{loginpassword}} 
 d-i user-setup/allow-password-weak boolean true 
 d-i user-setup/encrypt-home boolean false 
  

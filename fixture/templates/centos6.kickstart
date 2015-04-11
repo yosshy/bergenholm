@@ -30,9 +30,9 @@ keyboard us
 #System timezone
 timezone Asia/Tokyo
 #Root password
-rootpw "password"
+rootpw "{{loginpassword}}"
 
-user --name "charlie" --iscrypted --password "$1$vzpx0Hn5$EH5Xfax2MVzxw26xyQmS0."
+user --name "{{loginuser}}" --password "{{loginpassword}}"
 #Reboot after installation
 reboot
 #Use text mode install

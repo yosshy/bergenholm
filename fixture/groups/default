@@ -8,4 +8,6 @@
     "proxy_url": "http://proxy.example.com:8080",
     "ipxe_script": "localboot.ipxe",
     "netif": "eth0"
+    "loginuser": "user"
+    "loginpassword": "password"
 }
