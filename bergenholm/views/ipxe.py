@@ -39,7 +39,8 @@ def proxy(url, params):
     headers = {'Content-Length': req.headers['Content-Length']}
     return Response(
         stream_with_context(req.iter_content(chunk_size=CHUNK_SIZE)),
-        content_type=req.headers['content-type'],
+        content_type=req.headers.get('Content-Type',
+                                     'application/octet-stream'),
         headers=headers)
 
 
