@@ -1,11 +1,13 @@
 from bergenholm.power import dummy_driver
 from bergenholm.power import vmware_driver
 from bergenholm.power import ipmi_driver
+from bergenholm.power import libvirt_driver
 
 DRIVERS = {
     "dummy": dummy_driver,
     "vmware": vmware_driver,
-    "ipmi": ipmi_driver
+    "ipmi": ipmi_driver,
+    "libvirt": libvirt_driver
 }
 
 
