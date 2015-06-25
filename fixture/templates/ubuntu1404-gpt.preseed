@@ -1,0 +1,136 @@
+#===========================================================================================
+# BOOT SEQUENCE CONFIGURATIONS START
+# ENDの設定のところまではDVDメディア、USBメディアに同梱している場合にのみ有効になる設定。
+# PXEブートの場合はこのセクションは無視される。
+# この場合はpxelinuxのconfigのappendに直接記述する必要がある。
+#===========================================================================================
+d-i debian-installer/language string en
+d-i debian-installer/country string US
+d-i debian-installer/locale string en_US.UTF-8
+d-i localechooser/supported-locales en_US.UTF-8
+d-i console-setup/ask_detect boolean false
+d-i console-setup/layoutcode string us
+d-i console-setup/charmap select UTF-8
+ 
+# キーボードレイアウトの特性の設定（日本語キーボード）
+d-i keyboard-configuration/layoutcode string jp
+d-i keyboard-configuration/modelcode jp106
+ 
+#===========================================================================================
+# ネットワークまわりの設定
+#-------------------------------------------------------------------------------------------
+# 静的IP
+#-------------------------------------------------------------------------------------------
+# preseed.cfgを外から持ってこようとするとどうしてもいったんDHCP解決しないといけない。
+# そして以下の netcfg 項目は一回目は無視されるので d-i preseed/run のところで
+# ネットワーク設定をリセットするハックが必要になる。
+# そうすると静的IPとして設定を直してくれるようになる。
+#
+# 詳しくは以下:
+# - https://help.ubuntu.com/lts/installation-guide/i386/preseed-contents.html
+# - http://debian.2.n7.nabble.com/Bug-688273-Preseed-netcfg-use-autoconfig-and-netcfg-disable-dhcp-doesn-t-work-td1910023.html
+#
+# 以下の2項目を設定しないと静的IPとして処理されないので重要
+d-i netcfg/use_autoconfig boolean false 
+d-i netcfg/disable_autoconfig boolean true 
+ 
+d-i netcfg/choose_interface select {{netif}} 
+d-i netcfg/disable_dhcp boolean true 
+d-i netcfg/get_nameservers string {{nameserver}}
+d-i netcfg/get_ipaddress string {{ipaddr}}
+d-i netcfg/get_netmask string {{netmask}}
+d-i netcfg/get_gateway string {{gateway}}
+d-i netcfg/confirm_static boolean true 
+d-i netcfg/get_hostname string {{hostname}}
+d-i netcfg/get_domain string {{domainname}}
+d-i netcfg/wireless_wep string 
+#-------------------------------------------------------------------------------------------
+# DHCPのとき
+#-------------------------------------------------------------------------------------------
+#d-i netcfg/choose_interface select eth0 
+#d-i netcfg/disable_autoconfig boolean false
+#d-i netcfg/get_hostname string openstack 
+#d-i netcfg/get_domain string sv.pg1x.com 
+#d-i netcfg/wireless_wep string 
+ 
+# いったんリセット
+d-i preseed/run string https://raw.githubusercontent.com/wnoguchi/install-automation-recipes/master/Ubuntu/commons/prescript.sh
+#===========================================================================================
+# BOOT SEQUENCE CONFIGURATIONS END
+#===========================================================================================
+ 
+# インストーラパッケージをダウンロードするミラーを選択する
+d-i mirror/protocol {{mirror_scheme}}
+d-i mirror/country string manual
+d-i mirror/http/hostname string {{mirror_host}}
+d-i mirror/http/directory string {{mirror_path}}
+d-i mirror/http/proxy string {{proxy_url|default("")}}
+d-i mirror/https/proxy string {{proxy_url|default("")}}
+d-i mirror/ftp/proxy string {{proxy_url|default("")}}
+d-i debian-installer/allow_unauthenticated_ssl boolean true 
+ 
+# インストールするスイートを選択
+d-i mirror/suite trusty
+ 
+d-i clock-setup/utc boolean false 
+d-i time/zone string Japan 
+d-i clock-setup/ntp boolean false 
+ 
+#===========================================================================================
+# PARTMAN PARTITIONING SECTION START
+#===========================================================================================
+# すべてのRAIDデバイス構成を破棄する
+d-i partman-md/device_remove_md boolean true
+# すべてのLVMデバイス構成を破棄する
+d-i partman-lvm/device_remove_lvm boolean true
+ 
+d-i partman/confirm_nooverwrite boolean true
+ 
+d-i partman-auto/disk string /dev/sda
+d-i partman-auto/method string regular
+#d-i partman-auto/choose_recipe select root
+d-i partman-auto/choose_recipe \
+       select All files in one partition (recommended for new users)
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select Finish partitioning and write changes to disk
+d-i partman/confirm boolean true
+#===========================================================================================
+# PARTMAN PARTITIONING SECTION END
+#===========================================================================================
+ 
+d-i base-installer/install-recommends boolean true 
+d-i base-installer/kernel/image string linux-generic 
+ 
+d-i passwd/root-login boolean false 
+d-i passwd/make-user boolean true 
+d-i passwd/root-password password password 
+d-i passwd/root-password-again password password 
+d-i passwd/user-fullname string {{loginuser}} 
+d-i passwd/username string {{loginuser}} 
+d-i passwd/user-password password {{loginpassword}} 
+d-i passwd/user-password-again password {{loginpassword}} 
+d-i user-setup/allow-password-weak boolean true 
+d-i user-setup/encrypt-home boolean false 
+ 
+d-i apt-setup/use_mirror boolean true 
+ 
+d-i debian-installer/allow_unauthenticated boolean true 
+tasksel tasksel/first multiselect none 
+d-i pkgsel/install-language-support boolean true
+d-i pkgsel/include string openssh-server build-essential
+d-i pkgsel/upgrade select none 
+d-i pkgsel/update-policy select none 
+popularity-contest popularity-contest/participate boolean false 
+d-i pkgsel/updatedb boolean true 
+ 
+# GRUBインストーラー
+d-i grub-installer/grub2_instead_of_grub_legacy boolean true 
+d-i grub-installer/only_debian boolean true 
+d-i grub-installer/bootdev string /dev/sda
+
+# インストール済みマーク
+d-i preseed/late_command string wget -O - "{{installed_url}}"
+ 
+# インストールが終了したらサーバー再起動
+d-i finish-install/reboot_in_progress note
+
