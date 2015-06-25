@@ -77,5 +77,5 @@ wget
 %end
 
 %post
-wget -O - "{{installed_url}}"
+wget --no-proxy -O - "{{installed_url}}"
 %end
