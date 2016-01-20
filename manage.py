@@ -4,9 +4,9 @@
 from flask import Flask
 from flaskext.actions import Manager
 import settings
-from bergenholm import app
+import bergenholm
 
-app.config.from_object(settings)
+app = bergenholm.setup_app(settings)
 manager = Manager(app)
 
 if __name__ == "__main__":
