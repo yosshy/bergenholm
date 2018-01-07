@@ -3,7 +3,7 @@
 dhcp
 echo ===== System UUID is ${uuid} =====
 echo ===== Registering this host to Bergenholm =====
-imgfetch {{ipxe_url}}/register/${uuid}
+imgfetch {{ipxe_url}}/register/${uuid}?manufacturer=${manufacturer}&product=${product}&serial=${serial}&asset=${asset}&hostname=${hostname}
 imgfree
 sleep 10
 echo ===== Trying boot from local disk =====

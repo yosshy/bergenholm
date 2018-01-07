@@ -4,7 +4,7 @@ import requests
 from flask import (
     Blueprint, Response,
     abort, stream_with_context, make_response,
-    render_template_string
+    render_template_string, request
 )
 
 from bergenholm.database.hosts import get_host_params, create_host
@@ -13,6 +13,9 @@ from bergenholm.database.templates import get_template
 
 # chunk_size = 1MB
 CHUNK_SIZE = 1024 * 1024
+
+# BIOS parameters
+BIOS_PARAMS = ['manufacturer', 'product', 'serial', 'asset', 'hostname']
 
 ipxe = Blueprint('ipxe', __name__)
 
@@ -71,5 +74,8 @@ def module(uuid, module_id):
 @ipxe.route('/register/<uuid>')
 def register(uuid):
     params = {"groups": ["default"]}
+    for key in BIOS_PARAMS:
+        if key in request.args:
+            params[key] = request.args[key]
     create_host(uuid, params)
     return make_response("", 201, [])
