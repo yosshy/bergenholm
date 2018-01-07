@@ -14,8 +14,8 @@ INSTALLED = "installed"
 UUID = "uuid"
 
 
-def get_hosts():
-    hosts = mongo.db.hosts.find({}, {'_id': 1})
+def get_hosts(query={}):
+    hosts = mongo.db.hosts.find(query, {'_id': 1})
     return {"hosts": [x["_id"] for x in hosts]}
 
 

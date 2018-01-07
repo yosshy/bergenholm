@@ -20,7 +20,7 @@ hosts = Blueprint('hosts', __name__)
 @hosts.route('')
 @hosts.route('/')
 def _list():
-    return jsonify(get_hosts())
+    return jsonify(get_hosts(request.args))
 
 
 @hosts.route('/<name>',  methods=["POST"])
