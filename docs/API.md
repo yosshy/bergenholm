@@ -23,6 +23,26 @@ HTTP response:
   }
   </pre>
 
+
+### ```GET /api/1.0/hosts/?<param>=<value>&<param>=<value>&...$
+
+Retrieve filtered host list, hosts have parameters matching the condition specified as query parameters.
+Matching is exact match. You can put multiple conditions and they will work as an AND condition.
+
+HTTP response:
+- Status code:
+  -  200 (success)
+- Body:
+  <pre>
+  {
+    "hosts": [
+      "<uuid>",
+      "<uuid>",
+      ...,
+    ]
+  }
+  </pre>
+
 ### ```GET /api/1.0/hosts/<uuid>```
 
 Retrieve host parameters.
