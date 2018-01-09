@@ -2,8 +2,8 @@
 
 Bergenholm is a simple kickstart install server like Cobbler or MAAS.
 
-Japanese version of this document is [README.ja.md]
-(https://github.com/yosshy/bergenholm/blob/master/README.ja.md).
+Japanese version of this document is
+[README.ja.md] (https://github.com/yosshy/bergenholm/blob/master/README.ja.md).
 
 ## Features
 
@@ -26,8 +26,8 @@ Japanese version of this document is [README.ja.md]
   and parameters. You can use templates with host/group parameters for
   Kickstart/Preseed files, iPXE scripts, and so on.  Additionally, you
   can use parameters in parameters. No restriction for parameter
-  usage except [reserved parameters]
-  (https://github.com/yosshy/bergenholm/blob/master/docs/RESERVED_PARAMS.md)
+  usage except
+  [reserved parameters] (https://github.com/yosshy/bergenholm/blob/master/docs/RESERVED_PARAMS.md)
   .
 
 * Streaming Remote Images; Bergenholm can fetch kernel/initrd images
@@ -44,8 +44,7 @@ Japanese version of this document is [README.ja.md]
 
 ## Structure
 
-![Figure: Structure]
-(https://github.com/yosshy/bergenholm/raw/master/docs/structure.png)
+![Figure: Structure](https://github.com/yosshy/bergenholm/raw/master/docs/structure.png)
 
 
 ## Boot Sequence
@@ -83,35 +82,32 @@ or (for registration)
 
 ## Install
 
-See [INSTALL.md]
-(https://github.com/yosshy/bergenholm/blob/master/docs/INSTALL.md) for
-details.
+See [INSTALL.md] (https://github.com/yosshy/bergenholm/blob/master/docs/INSTALL.md)
+for details.
 
 
 ## Usage
 
-See [USAGE.md]
-(https://github.com/yosshy/bergenholm/blob/master/docs/USAGE.md) for details.
-If you have bergenholmclient installed, you will like [USAGE_CLI.md]
-(https://github.com/yosshy/bergenholm/blob/master/docs/USAGE_CLI.md).
+See [USAGE.md] (https://github.com/yosshy/bergenholm/blob/master/docs/USAGE.md)
+for details.
+If you have bergenholmclient installed, you will like
+[USAGE_CLI.md] (https://github.com/yosshy/bergenholm/blob/master/docs/USAGE_CLI.md).
 
 
 ## Client
 
-* [Command line tool](https://github.com/yosshy/bergenholmclient)
+* [Command line tool] (https://github.com/yosshy/bergenholmclient)
 
 
 ## APIs
 
-See [API.md]
-(https://github.com/yosshy/bergenholm/blob/master/docs/API.md) for
-details.
+See [API.md] (https://github.com/yosshy/bergenholm/blob/master/docs/API.md)
+for details.
 
 
 ## FAQs
 
-See [FAQ.md]
-(https://github.com/yosshy/bergenholm/blob/master/docs/FAQ.md).
+See [FAQ.md] (https://github.com/yosshy/bergenholm/blob/master/docs/FAQ.md).
 
 
 ## Notes
