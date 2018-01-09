@@ -28,7 +28,7 @@ Bergenholm (バーゲンホルム) は Cobbler や MAAS のような、シンプ
   とパラメータを扱う事ができます。Kickstart や Preseed ファイル用途で、
   テンプレートファイルはホストやグループのパラメータを使用する事ができ
   ます。
-  [予約パラメータ] (https://github.com/yosshy/bergenholm/blob/master/docs/RESERVED_PARAMS.ja.md)
+  [予約パラメータ](https://github.com/yosshy/bergenholm/blob/master/docs/RESERVED_PARAMS.ja.md)
   を除き、パラメータ定義に制約はありません。
 
 * リモートファイルのストリーミング: Bergenholm はリモートサイト上のカー
@@ -44,7 +44,7 @@ Bergenholm (バーゲンホルム) は Cobbler や MAAS のような、シンプ
 
 ## 構造
 
-![Figure: Structure] (https://github.com/yosshy/bergenholm/raw/master/docs/structure.png)
+![Figure: Structure](https://github.com/yosshy/bergenholm/raw/master/docs/structure.png)
 
 
 ## 起動シーケンス
@@ -82,32 +82,32 @@ Bergenholm (バーゲンホルム) は Cobbler や MAAS のような、シンプ
 
 ## インストール
 
-[INSTALL.ja.md] (https://github.com/yosshy/bergenholm/blob/master/docs/INSTALL.ja.md)
+[INSTALL.ja.md](https://github.com/yosshy/bergenholm/blob/master/docs/INSTALL.ja.md)
 を参照して下さい。
 
 
 ## 使用法
 
-[USAGE.ja.md] (https://github.com/yosshy/bergenholm/blob/master/docs/USAGE.ja.md) 
+[USAGE.ja.md](https://github.com/yosshy/bergenholm/blob/master/docs/USAGE.ja.md) 
 を参照して下さい。bergenholmclient をインストールしている場合は、
-[USAGE_CLI.ja.md] (https://github.com/yosshy/bergenholm/blob/master/docs/USAGE_CLI.ja.md)
+[USAGE_CLI.ja.md](https://github.com/yosshy/bergenholm/blob/master/docs/USAGE_CLI.ja.md)
 の方が良いでしょう。
 
 
 ## クライアント
 
-* [コマンドラインツール] (https://github.com/yosshy/bergenholmclient)
+* [コマンドラインツール](https://github.com/yosshy/bergenholmclient)
 
 
 ## API
 
-[API.ja.md] (https://github.com/yosshy/bergenholm/blob/master/docs/API.ja.md) 
+[API.ja.md](https://github.com/yosshy/bergenholm/blob/master/docs/API.ja.md) 
 を参照して下さい。
 
 
 ## よくある質問
 
-[FAQ.ja.md] (https://github.com/yosshy/bergenholm/blob/master/docs/FAQ.ja.md) 
+[FAQ.ja.md](https://github.com/yosshy/bergenholm/blob/master/docs/FAQ.ja.md) 
 を参照して下さい。
 
 
