@@ -1,3 +1,4 @@
-/	{}
-/kernel_opts	"DEBCONF_DEBUG=5 auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-s etup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false interface=eth0 hostname=localhost domain=localdomain url={{base_url}}/api/1.0/templates/{{preseed}}/${uuid} vga=normal quiet initrd=module0 --"
-/preseed	"ubuntu1404-gpt.preseed"
+{
+   "preseed" : "ubuntu1404-gpt.preseed",
+   "kernel_opts" : "DEBCONF_DEBUG=5 auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-s etup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false interface=eth0 hostname=localhost domain=localdomain url={{base_url}}/api/1.0/templates/{{preseed}}/${uuid} vga=normal quiet initrd=module0 --"
+}
