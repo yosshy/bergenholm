@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
 import argparse
-from pyghmi.ipmi.command import Command
+import subprocess
+import sys
+
 
 try:
     from bergenholm.power import status
@@ -12,48 +14,66 @@ except:
         UNKNOWN = "unknown"
 
 
-def main(host=None, port=None, user=None, password=None, command=None):
+class IPMItool(object):
 
-    c = Command(host, user, password, port=port)
+    def __init__(host, port, user, password):
+        self.host = host
+        self.port = str(port)
+        self.user = user
+        self.password = password
+
+    def run(*args):
+        cmdline = ["ipmitool",
+                   "-H", self.host,
+                   "-p", self.port,
+                   "-U", self.user,
+                   "-P", self.password,
+                   "chassis"]
+        return subprocess.check_output(cmdline + args)
+
+
+def main(host=None, port=623, user=None, password=None, command=None):
+
+    ipmitool = IPMItool(host, port, user, password)
 
     if command == "start":
-        c.set_bootdev("network")
-        c.set_power("on", wait=True)
+        ipmitool.run("bootdev", "pxe")
+        ipmitool.run("power", "on")
     elif command == "stop":
-        c.set_power("off", wait=True)
+        ipmitool.run("power", "off")
     elif command == "restart":
-        c.set_power("reset", wait=True)
+        ipmitool.run("power", "reset")
     elif command == "status":
-        result = c.get_power()["powerstate"]
-        if result == "on":
+        out = ipmitool.run("power", "status")
+        if out.strip().endswith("On"):
             return status.ON
-        elif result == "off":
+        elif out.strip().endswith("Off"):
             return status.OFF
         else:
             return status.UNKNOWN
     else:
-        raise exception("unknown command: %s" % command)
+        raise Exception("unknown command: %s" % command)
 
 
 def power_on(**params):
     return main(host=params["ipmi_host"],
                 user=params["ipmi_user"],
                 password=params["ipmi_password"],
-                command="start")
+                command="on")
 
 
 def power_off(**params):
     return main(host=params["ipmi_host"],
                 user=params["ipmi_user"],
                 password=params["ipmi_password"],
-                command="stop")
+                command="off")
 
 
 def power_reset(**params):
     return main(host=params["ipmi_host"],
                 user=params["ipmi_user"],
                 password=params["ipmi_password"],
-                command="restart")
+                command="reset")
 
 
 def power_status(**params):
