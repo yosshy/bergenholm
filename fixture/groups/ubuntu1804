@@ -1,0 +1,5 @@
+{
+    "groups": ["ubuntu"],
+    "series": "bionic",
+    "preseed": "ubuntu1404.preseed"
+}
