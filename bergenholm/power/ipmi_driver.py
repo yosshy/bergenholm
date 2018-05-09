@@ -16,11 +16,12 @@ except:
 
 class IPMItool(object):
 
-    def __init__(host, port, user, password):
+    def __init__(host, port, user, password, interface):
         self.host = host
         self.port = str(port)
         self.user = user
         self.password = password
+        self.interface = interface
 
     def run(*args):
         cmdline = ["ipmitool",
@@ -28,13 +29,15 @@ class IPMItool(object):
                    "-p", self.port,
                    "-U", self.user,
                    "-P", self.password,
+                   "-I", self.interface,
                    "chassis"]
         return subprocess.check_output(cmdline + args)
 
 
-def main(host=None, port=623, user=None, password=None, command=None):
+def main(host=None, port=623, user=None, password=None, command=None,
+         interface='lanplus'):
 
-    ipmitool = IPMItool(host, port, user, password)
+    ipmitool = IPMItool(host, port, user, password, interface)
 
     if command == "start":
         ipmitool.run("bootdev", "pxe")
@@ -101,6 +104,9 @@ if __name__ == "__main__":
     parser.add_argument('--password', dest='password',
                         default="",
                         help='User password of IPMI LAN I/F')
+    parser.add_argument('--interface', dest='interface',
+                        default="lanplus",
+                        help='Type of IPMI LAN I/F')
 
     args = parser.parse_args()
     print(main(**args.__dict__))
