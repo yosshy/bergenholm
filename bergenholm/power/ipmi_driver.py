@@ -16,22 +16,17 @@ except:
 
 class IPMItool(object):
 
-    def __init__(host, port, user, password, interface):
-        self.host = host
-        self.port = str(port)
-        self.user = user
-        self.password = password
-        self.interface = interface
+    def __init__(self, host, port, user, password, interface):
+        self.cmdline = ["ipmitool",
+                        "-H", host,
+                        "-p", str(port),
+                        "-U", user,
+                        "-P", password,
+                        "-I", interface,
+                        "chassis"]
 
-    def run(*args):
-        cmdline = ["ipmitool",
-                   "-H", self.host,
-                   "-p", self.port,
-                   "-U", self.user,
-                   "-P", self.password,
-                   "-I", self.interface,
-                   "chassis"]
-        return subprocess.check_output(cmdline + args)
+    def run(self, *args):
+        return subprocess.check_output(self.cmdline + list(args))
 
 
 def main(host=None, port=623, user=None, password=None, command=None,
@@ -48,9 +43,9 @@ def main(host=None, port=623, user=None, password=None, command=None,
         ipmitool.run("power", "reset")
     elif command == "status":
         out = ipmitool.run("power", "status")
-        if out.strip().endswith("On"):
+        if out.strip().lower().endswith("on"):
             return status.ON
-        elif out.strip().endswith("Off"):
+        elif out.strip().lower().endswith("off"):
             return status.OFF
         else:
             return status.UNKNOWN
