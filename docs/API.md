@@ -24,7 +24,7 @@ HTTP response:
   </pre>
 
 
-### ```GET /api/1.0/hosts/?<param>=<value>&<param>=<value>&...$
+### ```GET /api/1.0/hosts/?<param>=<value>&<param>=<value>&...$```
 
 Retrieve filtered host list, hosts have parameters matching the condition specified as query parameters.
 Matching is exact match. You can put multiple conditions and they will work as an AND condition.
